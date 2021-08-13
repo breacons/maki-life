@@ -1,0 +1,67 @@
+@import '../../../src/styles/variables';
+.container {
+  background-image: linear-gradient(to top left, @primary-color, #A1C0A0);
+}
+
+.panels {
+  padding: 15px;
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 100%;
+  height: calc(~'100vh - 64px - 2* 15px');
+  pointer-events: none;
+  max-height: 100%;
+
+}
+
+.panel {
+  background-color: white;
+  border-radius: 16px;
+  padding: 24px;
+  width: 300px;
+  pointer-events: all;
+
+  transition: height 250ms ease-in-out;
+  margin-bottom: 15px;
+
+  &.discussionPanel {
+    max-height: 500px;
+    overflow: scroll;
+  }
+
+  &.objectivesPanel {
+    height: 260px;
+    overflow: scroll;
+  }
+}
+
+.panelLeft {
+  max-height: 100%;
+}
+
+.panelRight {
+  top: 15px;
+  bottom: 0px;
+  right: 15px;
+  position: absolute;
+  transition: top 250ms ease-in-out;
+  //height: 100%;
+
+  & .panel {
+    max-height: 100%;
+    overflow: scroll;
+  }
+
+  &.isEditingRequest {
+    top: 125px;
+
+  }
+
+  &.isEditingChange {
+    top: 460px;
+  }
+}

@@ -1,0 +1,105 @@
+@import './variables';
+
+.ant-menu {
+  border-radius: 8px;
+}
+
+.esri-editor {
+  //max-height: 300px !important;
+}
+
+.esri-zoom {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.esri-component {
+  border-radius: 16px;
+
+  & .esri-sketch__section button,
+  & .esri-editor__feature-list-item {
+    border-radius: 8px;
+  }
+}
+
+.esri-sketch__panel.esri-sketch__info-panel {
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.ant-btn:not(.ant-btn-circle),
+.ant-tag,
+.ant-alert {
+  border-radius: 10px !important;
+}
+
+h3.ant-typography {
+  font-family: 'Georgia';
+}
+
+.ant-modal-content,
+.ant-dropdown-menu {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.ant-tooltip-content {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+input.ant-input,
+.ant-select-selector,
+.ant-input-affix-wrapper,
+.ant-picker,
+textarea.ant-input {
+  border-radius: 12px !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+
+  &:focus {
+    border-color: @primary-color;
+  }
+}
+//.ant-input-affix-wrapper {
+//  & .ant-input {
+//    border-radius: 0 !important;
+//  }
+//}
+
+.ant-select-focused .ant-select-selector {
+  border-color: @primary-color !important;
+}
+
+.ant-select-selection-item {
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.ant-alert-info {
+  background-color: #e9f6e5 !important;
+}
+
+.ant-menu-item-selected {
+  background-color: #def1d9 !important;
+  border-radius: 8px
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #def1d9 !important;
+}
+
+
+.ant-menu-item .anticon {
+  margin-right: 0px !important;
+  min-width: auto !important;
+}
+
+
+label.ant-form-item-no-colon {
+  font-weight: 600;
+}

@@ -1,0 +1,11 @@
+{
+  "presets": ["babel-preset-react-app"],
+  "plugins": ["react-intl-auto"],
+  "env": {
+    "production": {
+      "plugins": []
+    },
+    "development": {},
+    "test": {}
+  }
+}

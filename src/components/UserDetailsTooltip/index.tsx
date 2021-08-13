@@ -1,0 +1,38 @@
+import React, { Fragment } from 'react';
+import styles from './styles.module.less';
+import { Divider, Tooltip, Typography } from 'antd';
+import { User } from '../../interfaces/users';
+import UserAvatar from '../UserAvatar';
+
+interface Props {
+  member?: User | null;
+}
+
+export const UserDetailsTooltip = ({ member }: Props) => {
+  if (!member) {
+    return null;
+  }
+  return (
+    <Tooltip
+      title={
+        <span>
+          <UserAvatar user={member as User} />
+          <br />
+          <Typography.Title level={5} className={styles.name}>
+            {member?.firstName + ' ' + member?.lastName}
+          </Typography.Title>
+          <Divider className={styles.divider} />
+          <Typography.Text className={styles.text}>
+            <strong>{member?.role}</strong>
+          </Typography.Text>
+          <br />
+          <Typography.Text className={styles.text}>{member?.organisation}</Typography.Text>
+        </span>
+      }
+    >
+      {member?.firstName + ' ' + member?.lastName}
+    </Tooltip>
+  );
+};
+
+export default UserDetailsTooltip;
