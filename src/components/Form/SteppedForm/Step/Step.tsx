@@ -1,9 +1,8 @@
-import { Col, Row, Typography } from 'antd';
+import { Col, Row } from 'antd';
 import cx from 'classnames';
 import { AnyObject, FormApi } from 'final-form';
 import React, { ReactElement, ReactNode } from 'react';
 
-import If from '../../../If';
 import style from './Step.module.less';
 
 export type Props = {
@@ -16,15 +15,7 @@ export type Props = {
   form?: FormApi<AnyObject>;
 };
 
-export const Step = ({
-  index,
-  step,
-  description,
-  children,
-  title,
-  expand = false,
-  form,
-}: Props) => {
+export const Step = ({ index, step, description, children, expand = false, form }: Props) => {
   const kids = typeof children === 'function' ? children(form) : children;
 
   /* Even though the current step (index) is not the active one (step) then we

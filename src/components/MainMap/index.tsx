@@ -1,27 +1,21 @@
 import { loadModules } from 'esri-loader';
 import { useMap, useWatch } from 'esri-loader-hooks';
+import firebase from 'firebase/app';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+
+import { MapConfig } from '../../interfaces/discussions';
 import {
   getScreenShotPath,
   getSelectedGraphics,
   setScreenShotPath,
   setSelectGraphics,
 } from '../../redux/graphics';
-import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../redux/store';
-import { MapConfig } from '../../interfaces/discussions';
-import firebase from 'firebase/app';
-import { useParams, useRouteMatch } from 'react-router';
 import styles from './styles.module.less';
-import {
-  URL_SPACE_CHANGE_CREATE,
-  URL_SPACE_CHANGE_EDIT,
-  URL_SPACE_REQUEST_CREATE,
-  URL_SPACE_REQUEST_EDIT,
-} from '../../urls';
 
 interface Props {
-  // graphics?: GraphicJSON[];
   config?: MapConfig;
   isEditingChange: boolean;
   isEditingRequest: boolean;
@@ -45,7 +39,6 @@ export const MainMap = ({ config, isEditingRequest, isEditingChange }: Props) =>
 
   const map = {
     basemap: 'streets',
-    // sliderPosition: 'top-right'
   };
   const options = {
     view: config
@@ -126,7 +119,6 @@ export const MainMap = ({ config, isEditingRequest, isEditingChange }: Props) =>
             view: view,
             layerInfos: [],
             id: editorId,
-            // Set the snapping options for the Editor. By default, snapping is enabled. This can be toggled on/off using the CTRL key.
             snappingOptions: {
               enabled: true,
               selfEnabled: true,
@@ -134,7 +126,6 @@ export const MainMap = ({ config, isEditingRequest, isEditingChange }: Props) =>
               featureSources: [],
             },
           });
-          // Add widget to top-right of the view
           view.ui.add(editor, 'top-right');
         });
       } else {
@@ -154,7 +145,6 @@ export const MainMap = ({ config, isEditingRequest, isEditingChange }: Props) =>
                   return new Graphic({ geometry, symbol });
                 }),
               );
-              // console.log('Current Graphics State', graphicsAsJson);
               dispatch(setSelectGraphics(JSON.parse(graphicsAsJson)));
             }
           });
@@ -203,7 +193,6 @@ export const MainMap = ({ config, isEditingRequest, isEditingChange }: Props) =>
         const childRef = storageRef.child(id);
 
         childRef.putString(screenshot.dataUrl, 'data_url').then(async (snapshot) => {
-          // console.log('Uploaded a data_url string!', JSON.stringify(snapshot));
           const url = await snapshot.ref.getDownloadURL();
           if (requestId && discussionId) {
             const path = `discussions/${discussionId}/requests/${requestId}`;

@@ -1,6 +1,5 @@
-import React from 'react';
-import styles from './styles.module.less';
 import { Tag } from 'antd';
+import React from 'react';
 
 interface Props {
   status: string;

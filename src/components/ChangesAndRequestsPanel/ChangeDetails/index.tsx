@@ -1,23 +1,20 @@
+import { Alert } from 'antd';
 import React, { Fragment, useMemo } from 'react';
 import { useParams } from 'react-router';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 import { useDiscussionChange } from '../../../hooks/discussions';
 import {
   getDiscussionChangeEditUrl,
   getDiscussionChangeUrl,
   getDiscussionDetailUrl,
-  getDiscussionRequestUrl,
 } from '../../../urls';
-import styles from './styles.module.less';
 import CommentsSection from '../../CommentsSection';
-import If from '../../If';
-import RequestTag from '../../RequestTag';
-import PanelHeader from '../../PanelHeader';
 import Description from '../../Description';
+import If from '../../If';
+import PanelHeader from '../../PanelHeader';
+import RequestTag from '../../RequestTag';
 import { SectionTitle } from '../../SectionTitle/SectionTitle';
-import ChangeTag from '../../ChangeTag';
-import {Alert} from "antd";
 
 interface Props {}
 
@@ -30,7 +27,7 @@ export const ChangeDetails = ({}: Props) => {
 
   const backUrl = useMemo(() => getDiscussionChangeUrl(spaceId, discussionId, changeId), []);
 
-  const { change, isLoaded, isEmpty } = useDiscussionChange();
+  const { change, isLoaded } = useDiscussionChange();
 
   if (isLoaded && !change) {
     return <Redirect to={getDiscussionDetailUrl(spaceId, discussionId)} />;

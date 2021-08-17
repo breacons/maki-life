@@ -1,4 +1,4 @@
-import { Alert, Button, Tag, Image, Typography, Divider, List, Space } from 'antd';
+import { Alert, Button, Divider, Image, List, Space, Typography } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
@@ -13,10 +13,11 @@ import { getDiscussionDetailUrl } from '../../../urls';
 import CustomSpinner from '../../CustomSpinner';
 import If from '../../If';
 import PanelHeader from '../../PanelHeader';
-import docuSignLogo from './image/DocuSign_Logo.svg';
-import styles from './styles.module.less';
 import { SectionTitle } from '../../SectionTitle';
 import SubmissionTag from '../../SubmissionTag';
+import docuSignLogo from './image/DocuSign_Logo.svg';
+import styles from './styles.module.less';
+
 interface Props {}
 
 // TODO: warning it takes a few minutes to verify the signatures
@@ -120,7 +121,7 @@ export const SubmissionDetails = ({}: Props) => {
           <Space direction="vertical" size={12}>
             <Alert message="An agreement was reached for this discussion." type="success" />
             <Button loading={loading} block type="primary" size="large">
-             Download Signed Document
+              Download Signed Document
             </Button>
           </Space>
         )}

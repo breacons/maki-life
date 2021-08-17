@@ -2,16 +2,14 @@ import firebase from 'firebase';
 import _ from 'lodash-es';
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
 
 import { useDiscussionChange } from '../../../hooks/discussions';
-import { useUserId } from '../../../hooks/use-user';
 import { DiscussionChange, DiscussionRequestStatus } from '../../../interfaces/discussions';
-import { getDiscussionChangeDetailsUrl } from '../../../urls';
-import ChangeForm, { CreateChangeValues } from '../CreateChange/ChangeForm';
-import PanelHeader from '../../PanelHeader';
 import { setScreenShotPath } from '../../../redux/graphics';
 import { useAppDispatch } from '../../../redux/store';
+import { getDiscussionChangeDetailsUrl } from '../../../urls';
+import PanelHeader from '../../PanelHeader';
+import ChangeForm, { CreateChangeValues } from '../CreateChange/ChangeForm';
 
 interface Props {}
 
@@ -21,7 +19,6 @@ export const EditChange = ({}: Props) => {
     spaceId: string;
     changeId: string;
   }>();
-  const userId = useUserId();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const backUrl = getDiscussionChangeDetailsUrl(spaceId, discussionId, changeId);

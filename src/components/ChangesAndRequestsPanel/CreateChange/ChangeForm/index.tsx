@@ -1,16 +1,15 @@
-import React, { Fragment, useMemo } from 'react';
-import styles from './styles.module.less';
-import {DiscussionChange, DiscussionRequest, DiscussionRequestStatus} from '../../../../interfaces/discussions';
-import { Form } from '../../../Form';
-import { joi } from '../../../../lib/joi';
-import { validateSchema } from '../../../Form/validation';
-import { Field } from 'react-final-form';
-import Input, { TextArea } from '../../../Form/Input';
-import { Alert, Button } from 'antd';
+import { Button } from 'antd';
 import _ from 'lodash-es';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useMemo } from 'react';
+import { Field } from 'react-final-form';
+
 import { useCurrentDiscussion } from '../../../../hooks/discussions';
+import { DiscussionChange } from '../../../../interfaces/discussions';
+import { joi } from '../../../../lib/joi';
+import { Form } from '../../../Form';
+import Input, { TextArea } from '../../../Form/Input';
 import Select, { Option } from '../../../Form/Select';
+import { validateSchema } from '../../../Form/validation';
 
 interface Props {
   onSubmit: (values: CreateChangeValues) => void;
@@ -34,7 +33,7 @@ export interface CreateChangeValues {
   solvedRequestIds: Record<string, boolean>;
 }
 
-export const ChangeForm = ({ onSubmit, change, loading, backUrl }: Props) => {
+export const ChangeForm = ({ onSubmit, change, loading }: Props) => {
   const { discussion } = useCurrentDiscussion();
 
   const solvableRequests = useMemo(() => {
@@ -42,7 +41,7 @@ export const ChangeForm = ({ onSubmit, change, loading, backUrl }: Props) => {
       return [];
     }
 
-    return Object.values(discussion?.requests)
+    return Object.values(discussion?.requests);
 
     //   .filter(
     //   (request) => request.status === DiscussionRequestStatus.Open,

@@ -1,27 +1,25 @@
+import { Alert, Button, Space, Tag } from 'antd';
+import axios from 'axios';
 import React, { Fragment, useMemo, useState } from 'react';
-import styles from './styles.module.less';
-import EditDiscussion from '../EditDiscussion';
-import { Link } from 'react-router-dom';
-import { useSpaceId, useSpaceMember } from '../../../hooks/use-space';
-import { getSpaceDiscussionsUrl, getSubmissionDetailUrl } from '../../../urls';
+import { useHistory } from 'react-router';
+
+import { firebaseApiUrl } from '../../../config';
 import { useCurrentDiscussion } from '../../../hooks/discussions';
-import dayjs from 'dayjs';
-import SubmissionsList from '../SubmissionsList';
-import { Alert, Button, Space, Tag, Typography } from 'antd';
+import { useSpaceId } from '../../../hooks/use-space';
 import {
   Discussion,
   DiscussionRequestStatus,
   DiscussionStatus,
 } from '../../../interfaces/discussions';
-import If from '../../If';
-import axios from 'axios';
-import { firebaseApiUrl } from '../../../config';
-import { useHistory } from 'react-router';
-import _ from 'lodash-es';
-import PanelHeader from '../../PanelHeader';
+import { getSpaceDiscussionsUrl, getSubmissionDetailUrl } from '../../../urls';
 import Description from '../../Description';
-import { SectionTitle } from '../../SectionTitle';
 import DiscussionStatusTag from '../../DiscussionStatus';
+import If from '../../If';
+import PanelHeader from '../../PanelHeader';
+import { SectionTitle } from '../../SectionTitle';
+import EditDiscussion from '../EditDiscussion';
+import SubmissionsList from '../SubmissionsList';
+
 interface Props {}
 
 export const DiscussionDetails = ({}: Props) => {
@@ -38,7 +36,7 @@ export const DiscussionDetails = ({}: Props) => {
     const submissionId = Object.keys(discussion.submissions || {}).length + 1;
 
     setLoading(true);
-    const result = await axios.post(`${firebaseApiUrl}/submitDiscussion`, {
+    await axios.post(`${firebaseApiUrl}/submitDiscussion`, {
       discussionId: discussion.id,
       submissionId,
     });

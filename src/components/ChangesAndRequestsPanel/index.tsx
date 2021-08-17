@@ -1,12 +1,7 @@
-import { Button } from 'antd';
 import React, { Fragment } from 'react';
-import { useParams } from 'react-router';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import { Discussion } from '../../interfaces/discussions';
 import {
-  getDiscussionChangeCreateUrl,
-  getDiscussionRequestCreateUrl,
   URL_SPACE_CHANGE,
   URL_SPACE_CHANGE_CREATE,
   URL_SPACE_CHANGE_DETAILS,
@@ -21,10 +16,10 @@ import ActionList from './ActionList';
 import ChangeDetails from './ChangeDetails';
 import CreateChange from './CreateChange';
 import CreateRequest from './CreateRequest';
+import EditChange from './EditChange';
+import EditRequest from './EditRequest';
 import Empty from './Empty';
 import RequestDetails from './RequestDetails';
-import EditRequest from "./EditRequest";
-import EditChange from "./EditChange";
 
 interface Props {}
 

@@ -1,21 +1,21 @@
-import React, { Fragment, useState } from 'react';
-import { Comment } from '../../../interfaces/comments';
-import { Alert, Comment as CommentComponent, Divider, Tooltip } from 'antd';
-import If from '../../If';
-import dayjs from 'dayjs';
-import { useAppDispatch } from '../../../redux/store';
-import { setEditedComment, setRepliedComment } from '../../../redux/comments';
-import { useSpaceMember } from '../../../hooks/use-space';
-import _ from 'lodash-es';
-import { useUserId } from '../../../hooks/use-user';
-import firebase from 'firebase';
-import UserAvatar from '../../UserAvatar';
-import { User } from '../../../interfaces/users';
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
-import { inspect } from 'util';
-import styles from './styles.module.less';
+import { Alert, Comment as CommentComponent, Divider, Tooltip } from 'antd';
+import dayjs from 'dayjs';
+import firebase from 'firebase';
+import _ from 'lodash-es';
+import React, { Fragment, useState } from 'react';
+
+import { useSpaceMember } from '../../../hooks/use-space';
+import { useUserId } from '../../../hooks/use-user';
+import { Comment } from '../../../interfaces/comments';
+import { User } from '../../../interfaces/users';
+import { setEditedComment, setRepliedComment } from '../../../redux/comments';
+import { useAppDispatch } from '../../../redux/store';
 import Description from '../../Description';
+import If from '../../If';
+import UserAvatar from '../../UserAvatar';
 import UserDetailsTooltip from '../../UserDetailsTooltip';
+import styles from './styles.module.less';
 
 interface OneCommentProps {
   comment: Comment;
@@ -122,7 +122,6 @@ export const CommentsDisplay = ({ comments, startPath }: Props) => {
     return <Alert type="info" message="Nobody posted comments here." />;
   }
 
-
   return (
     <Fragment>
       {_.sortBy(Object.values(comments), 'time')
@@ -130,7 +129,6 @@ export const CommentsDisplay = ({ comments, startPath }: Props) => {
         .map((comment) => (
           <OneComment comment={comment} key={comment.id} path={`${startPath}/${comment.id}`} />
         ))}
-
     </Fragment>
   );
 };

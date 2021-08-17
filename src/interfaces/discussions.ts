@@ -1,7 +1,7 @@
 import { Comment } from './comments';
+import { Envelope } from './docusign';
 import { GraphicJSON } from './esri';
 import { FirebaseCollection } from './firebase';
-import {Envelope} from "./docusign";
 
 export enum DiscussionStatus {
   Open = 'Open',

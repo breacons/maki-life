@@ -5,13 +5,18 @@ import './index.less';
 import { ConfigProvider } from 'antd';
 import enUs from 'antd/lib/locale/en_US';
 import { loadCss, setDefaultOptions } from 'esri-loader';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
 import LanguageProvider from './components/LanguageProvider';
+import PrivateRoute from './components/PrivateRoute';
+import CreateSpacePage from './pages/CreateSpacePage';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import SpaceSelectPage from './pages/SpaceSelectPage';
 import { rrfProps, store } from './redux/store';
 import SpaceDetailsRouter from './routers/SpaceDetailsRouter';
@@ -23,13 +28,6 @@ import {
   URL_SPACE_DETAILS,
   URL_SPACES,
 } from './urls';
-import CreateSpacePage from './pages/CreateSpacePage';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import PrivateRoute from './components/PrivateRoute';
-import LandingPage from './pages/LandingPage';
-
-import './styles/index.less';
 
 // before loading the modules for the first time,
 // also lazy load the CSS for the version of

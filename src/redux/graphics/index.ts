@@ -5,8 +5,9 @@ import {
   EntityState,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { RootState } from '../reducers';
+
 import { GraphicJSON } from '../../interfaces/esri';
+import { RootState } from '../reducers';
 
 export const graphicsAdapter = createEntityAdapter<GraphicJSON[]>({
   // Assume IDs are stored in a field other than `book.id`
@@ -20,8 +21,8 @@ type ExtraState = {
   error: Error | null;
   isLoading: boolean;
   selectedGraphics: GraphicJSON[] | null;
-  screenShotPath: null | string,
-  screenShotUrl: null | string,
+  screenShotPath: null | string;
+  screenShotUrl: null | string;
 };
 export type GraphicsState = EntityState<GraphicJSON> & ExtraState;
 
@@ -61,9 +62,12 @@ export const getGraphicsError = createSelector(selectGraphics, (state) => state.
 
 export const graphicsSelectors = graphicsAdapter.getSelectors((state: RootState) => state.graphics);
 
-export const getSelectedGraphics = createSelector(selectGraphics, (state) => state.selectedGraphics);
+export const getSelectedGraphics = createSelector(
+  selectGraphics,
+  (state) => state.selectedGraphics,
+);
 export const getScreenShotPath = createSelector(selectGraphics, (state) => state.screenShotPath);
 export const getScreenShotUrl = createSelector(selectGraphics, (state) => state.screenShotUrl);
 
 export default graphicsSlice.reducer;
-export const { setSelectGraphics, unsetSelectGraphics, setScreenShotPath } = graphicsSlice.actions
+export const { setSelectGraphics, unsetSelectGraphics, setScreenShotPath } = graphicsSlice.actions;

@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 
 export const useEnter = (callback: Function) => {
   const handleUserKeyPress = useCallback(
-    event => {
+    (event) => {
       const { keyCode } = event;
 
       if (keyCode === 13) {

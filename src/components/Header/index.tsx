@@ -5,7 +5,7 @@ type PageTitleProps = {
   title: string;
 };
 
-const ORG_BENEFITS = 'Maki.life';
+const ORG_BENEFITS = 'Maki.today';
 export function PageTitle({ title }: PageTitleProps) {
   return (
     <Helmet>

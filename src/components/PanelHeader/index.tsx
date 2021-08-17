@@ -1,10 +1,11 @@
-import React from 'react';
-import styles from './styles.module.less';
-import If from '../If';
-import { Link } from 'react-router-dom';
 import { ArrowLeftOutlined, EditOutlined } from '@ant-design/icons';
 import { Button, Divider, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import If from '../If';
+import styles from './styles.module.less';
 
 interface Props {
   title?: string | null;

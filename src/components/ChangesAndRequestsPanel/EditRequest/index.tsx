@@ -1,16 +1,15 @@
+import firebase from 'firebase';
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import { useUserId } from '../../../hooks/use-user';
-import RequestForm, { CreateRequestValues } from '../CreateRequest/RequestForm';
+
+import { useDiscussionRequest } from '../../../hooks/discussions';
+import { DiscussionRequest } from '../../../interfaces/discussions';
 import { GraphicJSON } from '../../../interfaces/esri';
 import { getSelectedGraphics, setScreenShotPath } from '../../../redux/graphics';
 import { store, useAppDispatch } from '../../../redux/store';
-import { DiscussionRequest } from '../../../interfaces/discussions';
-import firebase from 'firebase';
 import { getDiscussionRequestDetailsUrl } from '../../../urls';
-import { Link } from 'react-router-dom';
-import { useDiscussionRequest } from '../../../hooks/discussions';
-import PanelHeader from "../../PanelHeader";
+import PanelHeader from '../../PanelHeader';
+import RequestForm, { CreateRequestValues } from '../CreateRequest/RequestForm';
 
 interface Props {}
 
@@ -20,7 +19,6 @@ export const EditRequest = ({}: Props) => {
     spaceId: string;
     requestId: string;
   }>();
-  const userId = useUserId();
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const backUrl = getDiscussionRequestDetailsUrl(spaceId, discussionId, requestId);
@@ -54,7 +52,7 @@ export const EditRequest = ({}: Props) => {
 
   return (
     <div>
-      <PanelHeader title='Edit request' backUrl={backUrl}/>
+      <PanelHeader title="Edit request" backUrl={backUrl} />
       <RequestForm
         onSubmit={onSubmit}
         loading={loading}

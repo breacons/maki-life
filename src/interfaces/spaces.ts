@@ -1,4 +1,4 @@
-import {Objective} from "./objectives";
+import { Objective } from './objectives';
 
 export interface Space {
   id: string;

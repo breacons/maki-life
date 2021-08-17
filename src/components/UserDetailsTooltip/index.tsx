@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
-import styles from './styles.module.less';
 import { Divider, Tooltip, Typography } from 'antd';
+import React from 'react';
+
 import { User } from '../../interfaces/users';
 import UserAvatar from '../UserAvatar';
+import styles from './styles.module.less';
 
 interface Props {
   member?: User | null;

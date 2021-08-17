@@ -1,18 +1,17 @@
-import React, { useState, Fragment } from 'react';
-import styles from './styles.module.less';
-import { useSpace, useSpaceById, useSpaceId, useSpaceMembers } from '../../../hooks/use-space';
-import firebase from 'firebase';
 import { Alert, Button, Divider, List, Space, Tag } from 'antd';
-import { useIsAdmin, useIsAdminBySpaceId, useUserId } from '../../../hooks/use-user';
-import If from '../../If';
-import { Form } from '../../Form';
-import { joi } from '../../../lib/joi';
-import { validateSchema } from '../../Form/validation';
+import firebase from 'firebase';
+import React, { Fragment, useState } from 'react';
 import { Field } from 'react-final-form';
-import Input from '../../Form/Input';
+
+import { useSpaceById, useSpaceMembers } from '../../../hooks/use-space';
+import { useIsAdminBySpaceId, useUserId } from '../../../hooks/use-user';
 import { User } from '../../../interfaces/users';
+import { joi } from '../../../lib/joi';
+import { Form } from '../../Form';
+import Input from '../../Form/Input';
+import { validateSchema } from '../../Form/validation';
+import If from '../../If';
 import { SectionTitle } from '../../SectionTitle';
-import UserDetailsTooltip from '../../UserDetailsTooltip';
 import UserAvatar from '../../UserAvatar';
 
 interface Props {
@@ -35,7 +34,7 @@ export const AddNewUser = ({ spaceId }: { spaceId: string }) => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const checkUserExists = async (values: any, form: any) => {
+  const checkUserExists = async (values: any) => {
     setLoading(true);
     setErrorText(null);
     setSuccess(false);

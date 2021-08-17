@@ -1,18 +1,20 @@
-import React, { Fragment } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
+import { Button, Divider, Space, Typography } from 'antd';
+import React from 'react';
 import { Link } from 'react-router-dom';
+
+import { PageTitle } from '../../components/Header';
+import SpaceLayout from '../../components/Layout/SpaceLayout';
 import SpaceSelectList from '../../components/SpaceSelectList';
 import { URL_CREATE_SPACE } from '../../urls';
-import SpaceLayout from '../../components/Layout/SpaceLayout';
 import styles from './styles.module.less';
-import {Alert, Button, Divider, Space, Typography} from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
-import {PageTitle} from "../../components/Header";
+
 interface Props {}
 
 export const SpaceSelectPage = ({}: Props) => {
   return (
     <SpaceLayout hideHeaderSelect>
-      <PageTitle title='Spaces' />
+      <PageTitle title="Spaces" />
       <div className={styles.container}>
         <div className={styles.inner}>
           <Typography.Title level={2} style={{ textAlign: 'center' }}>

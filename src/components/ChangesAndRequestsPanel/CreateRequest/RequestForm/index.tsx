@@ -1,14 +1,13 @@
-import React, { Fragment } from 'react';
-import styles from './styles.module.less';
-import { DiscussionRequest } from '../../../../interfaces/discussions';
-import { Form } from '../../../Form';
-import { joi } from '../../../../lib/joi';
-import { validateSchema } from '../../../Form/validation';
-import { Field } from 'react-final-form';
-import Input, { TextArea } from '../../../Form/Input';
 import { Alert, Button, Space } from 'antd';
 import _ from 'lodash-es';
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Field } from 'react-final-form';
+
+import { DiscussionRequest } from '../../../../interfaces/discussions';
+import { joi } from '../../../../lib/joi';
+import { Form } from '../../../Form';
+import Input, { TextArea } from '../../../Form/Input';
+import { validateSchema } from '../../../Form/validation';
 
 interface Props {
   onSubmit: (values: CreateRequestValues) => void;
@@ -31,7 +30,7 @@ export interface CreateRequestValues {
   description: string;
 }
 
-export const RequestForm = ({ onSubmit, request, loading, backUrl }: Props) => {
+export const RequestForm = ({ onSubmit, request, loading }: Props) => {
   return (
     <Form
       onSubmit={(values) => onSubmit(values as CreateRequestValues)}
@@ -41,7 +40,7 @@ export const RequestForm = ({ onSubmit, request, loading, backUrl }: Props) => {
       preventPrompt={false}
       loading={loading}
     >
-      {({ valid, pristine }) => (
+      {({ valid }) => (
         <Fragment>
           <Field
             name="title"

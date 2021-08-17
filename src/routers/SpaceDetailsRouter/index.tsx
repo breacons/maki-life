@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
+import SpaceLayout from '../../components/Layout/SpaceLayout';
 import SpaceLandingPage from '../../pages/SpaceLandingPage';
 import {
   URL_SPACE_CHANGE,
   URL_SPACE_CHANGE_CREATE,
   URL_SPACE_CHANGE_DETAILS,
+  URL_SPACE_CHANGE_EDIT,
   URL_SPACE_DETAILS,
   URL_SPACE_DISCUSSION_DETAIL,
   URL_SPACE_REQUEST,
   URL_SPACE_REQUEST_CREATE,
   URL_SPACE_REQUEST_DETAILS,
-  URL_SPACES,
-  URL_SPACE_CHANGE_EDIT,
   URL_SPACE_REQUEST_EDIT,
+  URL_SPACES,
 } from '../../urls';
-import firebase from 'firebase/app';
-import SpaceLayout from '../../components/Layout/SpaceLayout';
+
 interface Props {}
 
 export const SpaceDetailsRouter = ({}: Props) => {

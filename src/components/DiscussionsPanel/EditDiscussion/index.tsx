@@ -1,14 +1,13 @@
-import React, { Fragment, useState } from 'react';
-import { Button, Modal, Tooltip } from 'antd';
-import { useSpaceId } from '../../../hooks/use-space';
-import { v4 as uuidv4 } from 'uuid';
-import { DiscussionStatus } from '../../../interfaces/discussions';
-import firebase from 'firebase';
-import { getDiscussionDetailUrl } from '../../../urls';
-import { useHistory } from 'react-router';
-import { useCurrentDiscussion } from '../../../hooks/discussions';
-import DiscussionForm from '../CreateDiscussion/DiscussionForm';
 import { EditOutlined } from '@ant-design/icons';
+import { Button, Modal, Tooltip } from 'antd';
+import firebase from 'firebase';
+import React, { Fragment, useState } from 'react';
+import { useHistory } from 'react-router';
+
+import { useCurrentDiscussion } from '../../../hooks/discussions';
+import { useSpaceId } from '../../../hooks/use-space';
+import { getDiscussionDetailUrl } from '../../../urls';
+import DiscussionForm from '../CreateDiscussion/DiscussionForm';
 
 interface Props {}
 

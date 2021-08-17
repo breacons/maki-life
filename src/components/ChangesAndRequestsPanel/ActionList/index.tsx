@@ -1,13 +1,22 @@
-import { Button, Divider, Space, Tag, Tooltip, Typography } from 'antd';
+import {
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  CloseCircleOutlined,
+  EllipsisOutlined,
+  PlayCircleOutlined,
+} from '@ant-design/icons';
+import { Button, Divider, Space, Tag, Timeline, Tooltip, Typography } from 'antd';
+import classNames from 'classnames';
+import dayjs from 'dayjs';
 import _ from 'lodash-es';
-import React, { Fragment, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
-import { Timeline } from 'antd';
-import classNames from 'classnames';
+
 import { useDiscussion } from '../../../hooks/discussions';
+import { useSpaceMember } from '../../../hooks/use-space';
+import { useIsEditor } from '../../../hooks/use-user';
 import {
-  Discussion,
   DiscussionActionType,
   DiscussionChange,
   DiscussionChangeStatus,
@@ -18,27 +27,14 @@ import {
   getDiscussionChangeCreateUrl,
   getDiscussionChangeDetailsUrl,
   getDiscussionChangeUrl,
-  getDiscussionDetailUrl,
   getDiscussionRequestCreateUrl,
   getDiscussionRequestDetailsUrl,
   getDiscussionRequestUrl,
 } from '../../../urls';
 import If from '../../If';
-import styles from './styles.module.less';
 import PanelHeader from '../../PanelHeader';
-import { useIsEditor, useProfile } from '../../../hooks/use-user';
-import { useSpaceMember } from '../../../hooks/use-space';
-import dayjs from 'dayjs';
-import {
-  CheckCircleOutlined,
-  ClockCircleOutlined,
-  CloseCircleOutlined,
-  EllipsisOutlined,
-  PlayCircleOutlined,
-} from '@ant-design/icons';
 import UserDetailsTooltip from '../../UserDetailsTooltip';
-import UserAvatar from '../../UserAvatar';
-import { User } from '../../../interfaces/users';
+import styles from './styles.module.less';
 
 interface Props {}
 
@@ -62,7 +58,7 @@ const ItemFooter = ({ action }: { action: DiscussionChange | DiscussionRequest }
   const { member } = useSpaceMember(action.authorUserId);
 
   return (
-    <div style={{marginTop: 2}}>
+    <div style={{ marginTop: 2 }}>
       <Typography.Text type="secondary">
         <Tag style={{ marginRight: 0 }} color={colors[action.status]}>
           {icons[action.status]}
@@ -86,7 +82,7 @@ export const ActionList = ({}: Props) => {
     changeId: string;
   }>();
 
-  const { discussion, isLoaded, isEmpty } = useDiscussion();
+  const { discussion } = useDiscussion();
 
   const actions = useMemo(() => {
     if (!discussion) {

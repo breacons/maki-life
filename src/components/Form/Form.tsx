@@ -14,10 +14,10 @@ import {
 } from 'react-final-form';
 import { defineMessages, useIntl } from 'react-intl';
 
+import CustomSpinner from '../CustomSpinner';
 import If from '../If';
 //import { report } from '../../service/reporting'
 import { validationMessages } from './validation';
-import CustomSpinner from "../CustomSpinner";
 export type FormRenderProps = OriginalFormRenderProps;
 
 export interface FormProps<T> extends OriginalFormProps {

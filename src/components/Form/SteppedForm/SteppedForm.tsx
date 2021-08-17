@@ -1,12 +1,11 @@
 import { LoadingOutlined } from '@ant-design/icons';
-import { Button, Col, Divider, Row, Space, Steps } from 'antd';
+import { Button, Divider, Space, Steps } from 'antd';
 import { FormApi, ValidationErrors } from 'final-form';
 import _ from 'lodash';
-import React, { ReactElement, useState, Fragment } from 'react';
+import React, { Fragment, ReactElement, useState } from 'react';
 import { FormRenderProps } from 'react-final-form';
 import { defineMessages, FormattedMessage } from 'react-intl';
 
-import { UseEnterWrapper } from '../../../hooks/use-enter';
 import If from '../../If';
 import Form from '../Form';
 import { Props as StepProps } from './Step';
@@ -77,10 +76,7 @@ export const SteppedForm = ({
       fieldsInCurrentStep.includes(error),
     );
 
-    const hasError = fieldsWithErrorsInCurrentStep.length > 0;
-    // setCurrentStepHasError(hasError);
-
-    return hasError;
+    return fieldsWithErrorsInCurrentStep.length > 0;
   };
 
   const next = () => {
@@ -103,7 +99,13 @@ export const SteppedForm = ({
         return (
           <Fragment>
             {/*<UseEnterWrapper allowed={stepHasError(step, errors)} callback={next} />*/}
-            <Steps direction="horizontal" size="small" current={step} onChange={setStep} labelPlacement="vertical">
+            <Steps
+              direction="horizontal"
+              size="small"
+              current={step}
+              onChange={setStep}
+              labelPlacement="vertical"
+            >
               {steps.map((currentStep, index: number) => {
                 const errorInStep = stepHasError(index, errors);
                 return (

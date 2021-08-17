@@ -1,29 +1,28 @@
+import { CloseOutlined, PlusOutlined, SendOutlined } from '@ant-design/icons';
+import { Button, Tooltip, Typography } from 'antd';
+import dayjs from 'dayjs';
+import firebase from 'firebase';
 import React, { Fragment, useEffect, useState } from 'react';
-import styles from './styles.module.less';
-import { Form } from '../../Form/Form';
-import _ from 'lodash-es';
 import { Field } from 'react-final-form';
-import Input, { TextArea } from '../../Form/Input';
-import { Alert, Button, Tooltip, Typography } from 'antd';
-import { Link } from 'react-router-dom';
-import { CreateRequestValues } from '../../ChangesAndRequestsPanel/CreateRequest/RequestForm';
-import { joi } from '../../../lib/joi';
-import { validateSchema } from '../../Form/validation';
 import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+
+import { useSpaceMember } from '../../../hooks/use-space';
+import { useUserId } from '../../../hooks/use-user';
+import { joi } from '../../../lib/joi';
 import {
   getEditedComment,
   getRepliedComment,
   unsetEditedComment,
   unsetRepliedComment,
 } from '../../../redux/comments';
-import If from '../../If';
-import firebase from 'firebase';
-import { v4 as uuidv4 } from 'uuid';
-import { useUserId } from '../../../hooks/use-user';
-import dayjs from 'dayjs';
 import { useAppDispatch } from '../../../redux/store';
-import { CloseOutlined, PlusOutlined, SendOutlined } from '@ant-design/icons';
-import { useSpaceMember } from '../../../hooks/use-space';
+import { CreateRequestValues } from '../../ChangesAndRequestsPanel/CreateRequest/RequestForm';
+import { Form } from '../../Form/Form';
+import { TextArea } from '../../Form/Input';
+import { validateSchema } from '../../Form/validation';
+import If from '../../If';
+import styles from './styles.module.less';
 
 interface Props {
   rootPath: string;
@@ -143,7 +142,7 @@ export const WriteComment = ({ rootPath }: Props) => {
               preventPrompt={false}
               loading={loading}
             >
-              {({ valid, pristine }) => (
+              {({ valid }) => (
                 <div className={styles.form}>
                   <Field
                     name="content"

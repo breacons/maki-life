@@ -1,22 +1,21 @@
+import dayjs from 'dayjs';
+import firebase from 'firebase';
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
-import {getDiscussionDetailUrl, getDiscussionRequestDetailsUrl, getDiscussionRequestUrl} from '../../../urls';
-import RequestForm, { CreateRequestValues } from './RequestForm';
+import { useUserId } from '../../../hooks/use-user';
 import {
   DiscussionActionType,
   DiscussionRequest,
   DiscussionRequestStatus,
 } from '../../../interfaces/discussions';
-import { useUserId } from '../../../hooks/use-user';
-import dayjs from 'dayjs';
-import { v4 as uuidv4 } from 'uuid';
-import {getSelectedGraphics, setScreenShotPath} from '../../../redux/graphics';
-import {store, useAppDispatch} from '../../../redux/store';
 import { GraphicJSON } from '../../../interfaces/esri';
-import firebase from 'firebase';
-import PanelHeader from "../../PanelHeader";
+import { getSelectedGraphics, setScreenShotPath } from '../../../redux/graphics';
+import { store, useAppDispatch } from '../../../redux/store';
+import { getDiscussionDetailUrl, getDiscussionRequestDetailsUrl } from '../../../urls';
+import PanelHeader from '../../PanelHeader';
+import RequestForm, { CreateRequestValues } from './RequestForm';
 
 interface Props {}
 
@@ -59,7 +58,7 @@ export const CreateRequest = ({}: Props) => {
   const backUrl = getDiscussionDetailUrl(spaceId, discussionId);
   return (
     <div>
-      <PanelHeader title='Create Request' backUrl={backUrl}/>
+      <PanelHeader title="Create Request" backUrl={backUrl} />
       <RequestForm onSubmit={onSubmit} loading={loading} backUrl={backUrl} />
     </div>
   );

@@ -1,10 +1,11 @@
+import { UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
 import { AvatarProps } from 'antd/es/avatar';
-import React from 'react';
-import { User } from '../../interfaces/users';
-import { UserOutlined } from '@ant-design/icons';
-import styles from './styles.module.less';
 import classNames from 'classnames';
+import React from 'react';
+
+import { User } from '../../interfaces/users';
+import styles from './styles.module.less';
 
 interface UserAvatarProps {
   user: User | null;

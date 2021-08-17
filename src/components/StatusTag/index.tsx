@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
-import { DiscussionRequest, DiscussionRequestStatus } from '../../interfaces/discussions';
 import { Dropdown, Menu, Modal, Tag, Typography } from 'antd';
 import firebase from 'firebase';
-import SolutionModalContent from './SolutionModalContent';
-import { SectionTitle } from '../SectionTitle';
+import React, { Fragment, useState } from 'react';
+
 import { useCurrentDiscussion } from '../../hooks/discussions';
+import { DiscussionRequest, DiscussionRequestStatus } from '../../interfaces/discussions';
+import { SectionTitle } from '../SectionTitle';
+import SolutionModalContent from './SolutionModalContent';
 
 interface Props {
   request: DiscussionRequest;

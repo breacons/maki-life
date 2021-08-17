@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from './styles.module.less';
-import { useCurrentDiscussion } from '../../../hooks/discussions';
 import { Select, Typography } from 'antd';
+import React from 'react';
+
+import { useCurrentDiscussion } from '../../../hooks/discussions';
 import { DiscussionChange } from '../../../interfaces/discussions';
 
 interface Props {

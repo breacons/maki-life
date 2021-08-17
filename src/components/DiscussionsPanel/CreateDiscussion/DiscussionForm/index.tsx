@@ -1,16 +1,16 @@
-import React from 'react';
-import styles from './styles.module.less';
 import _ from 'lodash-es';
-import { Step } from '../../../Form/SteppedForm/Step/Step';
+import React from 'react';
 import { Field } from 'react-final-form';
-import Input, { TextArea } from '../../../Form/Input';
-import MapField from '../../MapField';
-import Select, { Option } from '../../../Form/Select';
-import SteppedForm from '../../../Form/SteppedForm/SteppedForm';
+
 import { useSpace, useSpaceMembers } from '../../../../hooks/use-space';
-import { joi } from '../../../../lib/joi';
-import { validateSchema } from '../../../Form/validation';
 import { Discussion } from '../../../../interfaces/discussions';
+import { joi } from '../../../../lib/joi';
+import Input, { TextArea } from '../../../Form/Input';
+import Select, { Option } from '../../../Form/Select';
+import { Step } from '../../../Form/SteppedForm/Step/Step';
+import SteppedForm from '../../../Form/SteppedForm/SteppedForm';
+import { validateSchema } from '../../../Form/validation';
+import MapField from '../../MapField';
 
 interface Props {
   onSubmit: (values: any) => void;

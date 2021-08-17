@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
-import styles from './styles.module.less';
-import { useSpaces } from '../../hooks/use-space';
+import { UserOutlined } from '@ant-design/icons';
 import { Button, Modal } from 'antd';
+import React, { useState } from 'react';
+
 import EditSpaceMembersForm from './EditSpaceMembersForm';
-import {UsergroupAddOutlined, UserOutlined} from "@ant-design/icons";
 
 interface Props {
-  id: string
+  id: string;
 }
 
-export const EditSpaceMembers = ({id}: Props) => {
+export const EditSpaceMembers = ({ id }: Props) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <div>
@@ -21,9 +20,9 @@ export const EditSpaceMembers = ({id}: Props) => {
         okText="Finish"
         centered
       >
-        <EditSpaceMembersForm spaceId={id}/>
+        <EditSpaceMembersForm spaceId={id} />
       </Modal>
-      <Button onClick={() => setShowModal(true)} icon={<UserOutlined />} shape='circle'/>
+      <Button onClick={() => setShowModal(true)} icon={<UserOutlined />} shape="circle" />
     </div>
   );
 };

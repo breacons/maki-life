@@ -1,21 +1,21 @@
+import dayjs from 'dayjs';
+import firebase from 'firebase';
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-
-import { getDiscussionChangeDetailsUrl, getDiscussionDetailUrl } from '../../../urls';
-import { useUserId } from '../../../hooks/use-user';
 import { v4 as uuidv4 } from 'uuid';
+
+import { useUserId } from '../../../hooks/use-user';
 import {
   DiscussionActionType,
   DiscussionChange,
-  DiscussionChangeStatus, DiscussionRequestStatus,
+  DiscussionChangeStatus,
+  DiscussionRequestStatus,
 } from '../../../interfaces/discussions';
-import dayjs from 'dayjs';
-import firebase from 'firebase';
+import { setScreenShotPath } from '../../../redux/graphics';
+import { useAppDispatch } from '../../../redux/store';
+import { getDiscussionChangeDetailsUrl, getDiscussionDetailUrl } from '../../../urls';
+import PanelHeader from '../../PanelHeader';
 import ChangeForm, { CreateChangeValues } from './ChangeForm';
-import PanelHeader from "../../PanelHeader";
-import {setScreenShotPath} from "../../../redux/graphics";
-import {useAppDispatch} from "../../../redux/store";
 
 interface Props {}
 
@@ -64,7 +64,7 @@ export const CreateChange = ({}: Props) => {
   const backUrl = getDiscussionDetailUrl(spaceId, discussionId);
   return (
     <div>
-      <PanelHeader title='Create Version' backUrl={backUrl}/>
+      <PanelHeader title="Create Version" backUrl={backUrl} />
       <ChangeForm onSubmit={onSubmit} loading={loading} backUrl={backUrl} />
     </div>
   );

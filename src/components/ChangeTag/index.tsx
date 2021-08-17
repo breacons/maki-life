@@ -1,7 +1,7 @@
+import { Tag } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './styles.module.less';
-import { Tag } from 'antd';
+
 import { getDiscussionChangeDetailsUrl } from '../../urls';
 
 interface Props {

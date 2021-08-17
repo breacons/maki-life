@@ -1,14 +1,13 @@
+import { List, Tag } from 'antd';
 import React, { Fragment, useCallback, useMemo } from 'react';
 
-import styles from './styles.module.less';
-import PanelHeader from '../PanelHeader';
-import CreateObjective from './CreateObjective';
+import { useCurrentDiscussion } from '../../hooks/discussions';
 import { useSpace } from '../../hooks/use-space';
 import { firebaseObjectToArray } from '../../utils/firebase-transformers';
-import { List, Tag } from 'antd';
-import { priorityIcons } from './ObjectiveForm';
-import { useCurrentDiscussion } from '../../hooks/discussions';
 import If from '../If';
+import PanelHeader from '../PanelHeader';
+import CreateObjective from './CreateObjective';
+import { priorityIcons } from './ObjectiveForm';
 
 interface Props {}
 

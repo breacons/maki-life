@@ -1,18 +1,15 @@
+import { FlagFilled } from '@ant-design/icons';
+import { Button } from 'antd';
 import React, { Fragment } from 'react';
-import styles from './styles.module.less';
-import _ from 'lodash-es';
-import { Step } from '../../Form/SteppedForm/Step/Step';
 import { Field } from 'react-final-form';
+
+import { Objective } from '../../../interfaces/objectives';
+import { joi } from '../../../lib/joi';
+import { Form } from '../../Form';
 import Input, { TextArea } from '../../Form/Input';
 import Select, { Option } from '../../Form/Select';
-import { joi } from '../../../lib/joi';
 import { validateSchema } from '../../Form/validation';
-import { Objective } from '../../../interfaces/objectives';
-import { Form } from '../../Form';
-import Rate from '../../Form/Rate';
-import { FlagFilled, PlusOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
-import { SectionTitle } from '../../SectionTitle';
+import styles from './styles.module.less';
 
 interface Props {
   onSubmit: (values: any) => void;
@@ -38,7 +35,7 @@ const objectiveSchema = joi
   .required();
 const validator = validateSchema(objectiveSchema);
 
-export const ObjectiveForm = ({ onSubmit, loading, objective }: Props) => {
+export const ObjectiveForm = ({ onSubmit, loading }: Props) => {
   return (
     <Form
       validator={validator}
@@ -50,7 +47,7 @@ export const ObjectiveForm = ({ onSubmit, loading, objective }: Props) => {
       keepDirtyOnReinitialize={true}
       isLoading={loading}
     >
-      {({ valid, form }) => (
+      {({ valid }) => (
         <Fragment>
           <Field
             name="title"

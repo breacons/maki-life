@@ -1,26 +1,14 @@
-import {
-  CloseOutlined,
-  DeleteOutlined,
-  PlusOutlined,
-  StopOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { DeleteOutlined, PlusOutlined, StopOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Dropdown, Menu, Space, Tooltip, Typography } from 'antd';
-import React, { Fragment, useMemo } from 'react';
-
-import {
-  useFetchedSpaceMember,
-  useSpace,
-  useSpaceMember,
-  useSpaceMembers,
-} from '../../hooks/use-space';
-import { DiscussionRequest, DiscussionRequestStatus } from '../../interfaces/discussions';
-import { User, UserType } from '../../interfaces/users';
-import UserAvatar from '../UserAvatar';
-import If from '../If';
 import firebase from 'firebase';
+import React, { useMemo } from 'react';
+
+import { useSpace, useSpaceMembers } from '../../hooks/use-space';
+import { DiscussionRequest } from '../../interfaces/discussions';
+import { User } from '../../interfaces/users';
+import If from '../If';
+import UserAvatar from '../UserAvatar';
 import styles from './styles.module.less';
-import { useCurrentDiscussion } from '../../hooks/discussions';
 
 interface Props {
   request: DiscussionRequest;
@@ -80,18 +68,7 @@ const menu = (
   </Menu>
 );
 
-const FetchedUserAvatar = ({ userId }: { userId: string }) => {
-  const { member, isLoaded } = useFetchedSpaceMember(userId);
-
-  if (!isLoaded || !member) {
-    return <Avatar icon={<UserOutlined />} />;
-  }
-
-  return <UserAvatar user={member} />;
-};
-
 export const AuthorAvatars = ({ request, discussionId }: Props) => {
-  // const { members } = useSpaceMembers(UserType.Editor);
   const { members } = useSpaceMembers();
   const { space } = useSpace();
 

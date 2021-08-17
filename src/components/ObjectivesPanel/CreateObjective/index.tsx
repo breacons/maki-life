@@ -1,14 +1,10 @@
-import React, { Fragment, useState } from 'react';
-import styles from './styles.module.less';
-import { useSpaceId } from '../../../hooks/use-space';
-import { useHistory } from 'react-router';
-import { v4 as uuidv4 } from 'uuid';
-import { DiscussionStatus } from '../../../interfaces/discussions';
-import dayjs from 'dayjs';
-import firebase from 'firebase';
-import { getDiscussionDetailUrl } from '../../../urls';
-import { Button, Modal, Tooltip } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Button, Modal, Tooltip } from 'antd';
+import firebase from 'firebase';
+import React, { Fragment, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import { useSpaceId } from '../../../hooks/use-space';
 import ObjectiveForm from '../ObjectiveForm';
 
 interface Props {}
@@ -18,7 +14,6 @@ export const CreateObjective = ({}: Props) => {
   const [loading, setLoading] = useState(false);
 
   const spaceId = useSpaceId();
-  const history = useHistory();
 
   const onSubmit = async (values: any) => {
     const id = uuidv4();

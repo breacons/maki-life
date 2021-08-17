@@ -1,24 +1,23 @@
+import { Alert, Menu } from 'antd';
 import React from 'react';
-import styles from './styles.module.less';
+
 import { useSpaces } from '../../hooks/use-space';
-import { Alert, Menu, Spin } from 'antd';
-import { Link } from 'react-router-dom';
-import { getSpaceDetailsUrl } from '../../urls';
 import SpaceItem from '../SpaceItem';
 import { SpinnerOverlay } from '../SpinnerOverlay';
+import styles from './styles.module.less';
 
 interface Props {
-  hideMembers?: boolean
+  hideMembers?: boolean;
 }
 
-export const SpaceSelectList = ({hideMembers = false}: Props) => {
+export const SpaceSelectList = ({ hideMembers = false }: Props) => {
   const { spaces, isLoaded, isEmpty } = useSpaces();
 
   if (!isLoaded) {
     return <SpinnerOverlay spinning />;
   }
 
-  if ((isEmpty && isLoaded)) {
+  if (isEmpty && isLoaded) {
     return (
       <Alert
         message="You don't have access to any spaces yet."
@@ -33,7 +32,7 @@ export const SpaceSelectList = ({hideMembers = false}: Props) => {
     <Menu className={styles.container}>
       {spaces.map((space) => (
         <Menu.Item key={space.id}>
-          <SpaceItem space={space} hideMembers={hideMembers}/>
+          <SpaceItem space={space} hideMembers={hideMembers} />
         </Menu.Item>
       ))}
     </Menu>

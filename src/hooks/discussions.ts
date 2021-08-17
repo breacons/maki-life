@@ -5,11 +5,7 @@ import { useParams } from 'react-router';
 
 import { Discussion } from '../interfaces/discussions';
 import { RootState } from '../redux/reducers';
-import {
-  firebaseObjectToArray,
-  firebaseToArray,
-  firebaseToObject,
-} from '../utils/firebase-transformers';
+import { firebaseObjectToArray, firebaseToObject } from '../utils/firebase-transformers';
 
 export const useDiscussions = (): {
   discussions: Discussion[];
@@ -20,7 +16,7 @@ export const useDiscussions = (): {
     spaceId: string;
   }>();
 
-  console.log('useDiscussions', spaceId)
+  console.log('useDiscussions', spaceId);
   useFirebaseConnect([
     {
       path: 'discussions',
@@ -108,7 +104,7 @@ export const useCurrentDiscussion = (): {
   isLoaded: boolean;
   isEmpty: boolean;
 } => {
-  const { spaceId, discussionId } = useParams<{
+  const { discussionId } = useParams<{
     spaceId: string;
     discussionId: string;
   }>();

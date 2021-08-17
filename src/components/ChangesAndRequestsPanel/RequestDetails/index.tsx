@@ -1,17 +1,17 @@
 import React from 'react';
 import { useParams } from 'react-router';
 
-import { getDiscussionRequestEditUrl, getDiscussionRequestUrl } from '../../../urls';
 import { useDiscussionRequest } from '../../../hooks/discussions';
-import StatusTag from '../../StatusTag';
-import { DiscussionRequest, DiscussionRequestStatus } from '../../../interfaces/discussions';
-import AuthorAvatars from '../../AuthorAvatars';
-import CommentsSection from '../../CommentsSection';
-import ChangeTag from '../../ChangeTag';
 import { useUserId } from '../../../hooks/use-user';
-import PanelHeader from '../../PanelHeader';
+import { DiscussionRequest, DiscussionRequestStatus } from '../../../interfaces/discussions';
+import { getDiscussionRequestEditUrl, getDiscussionRequestUrl } from '../../../urls';
+import AuthorAvatars from '../../AuthorAvatars';
+import ChangeTag from '../../ChangeTag';
+import CommentsSection from '../../CommentsSection';
 import Description from '../../Description';
+import PanelHeader from '../../PanelHeader';
 import { SectionTitle } from '../../SectionTitle';
+import StatusTag from '../../StatusTag';
 import styles from './styles.module.less';
 
 interface Props {}

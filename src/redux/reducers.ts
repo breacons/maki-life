@@ -1,12 +1,12 @@
 import { FirebaseReducer, firebaseReducer } from 'react-redux-firebase';
 import { combineReducers } from 'redux';
-import graphics, { GraphicsState } from './graphics';
-import comments, { CommentsState } from './comments';
 
 import { Discussion } from '../interfaces/discussions';
-import { User } from '../interfaces/users';
-import { Space } from '../interfaces/spaces';
 import { Envelope } from '../interfaces/docusign';
+import { Space } from '../interfaces/spaces';
+import { User } from '../interfaces/users';
+import comments, { CommentsState } from './comments';
+import graphics, { GraphicsState } from './graphics';
 
 interface Schema {
   discussions: Discussion;

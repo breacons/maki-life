@@ -1,8 +1,9 @@
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers';
-import { User, UserType } from '../interfaces/users';
-import { useSpace, useSpaceById } from './use-space';
 import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+
+import { User, UserType } from '../interfaces/users';
+import { RootState } from '../redux/reducers';
+import { useSpace, useSpaceById } from './use-space';
 
 export const useUserId = () => {
   const { uid } = useSelector((state: RootState) => state.firebase.auth);

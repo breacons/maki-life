@@ -1,14 +1,15 @@
-import React, { Fragment, useState } from 'react';
-import {Button, Modal, Tooltip} from 'antd';
-import { useSpaceId } from '../../../hooks/use-space';
-import { v4 as uuidv4 } from 'uuid';
-import { DiscussionStatus } from '../../../interfaces/discussions';
+import { PlusOutlined } from '@ant-design/icons';
+import { Button, Modal, Tooltip } from 'antd';
+import dayjs from 'dayjs';
 import firebase from 'firebase';
-import { getDiscussionDetailUrl } from '../../../urls';
+import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router';
+import { v4 as uuidv4 } from 'uuid';
+
+import { useSpaceId } from '../../../hooks/use-space';
+import { DiscussionStatus } from '../../../interfaces/discussions';
+import { getDiscussionDetailUrl } from '../../../urls';
 import DiscussionForm from './DiscussionForm';
-import {EditOutlined, PlusOutlined} from "@ant-design/icons";
-import dayjs from "dayjs";
 
 interface Props {}
 
@@ -26,7 +27,7 @@ export const CreateDiscussion = ({}: Props) => {
       id,
       spaceId,
       status: DiscussionStatus.Open,
-      time: dayjs().unix()
+      time: dayjs().unix(),
     };
 
     setLoading(true);
@@ -47,7 +48,6 @@ export const CreateDiscussion = ({}: Props) => {
         width={900}
         onCancel={() => setShowModal(false)}
         centered
-
       >
         <DiscussionForm onSubmit={onSubmit} loading={loading} />
       </Modal>

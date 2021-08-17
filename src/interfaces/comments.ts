@@ -8,5 +8,5 @@ export interface Comment {
   downvotes?: string[]; // TODO: firebase collection
   replies: FirebaseCollection<Comment>;
   time: number;
-  lastUpdated:  number;
+  lastUpdated: number;
 }

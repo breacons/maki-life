@@ -1,20 +1,21 @@
+import { List, Typography } from 'antd';
+import _ from 'lodash-es';
 import React, { Fragment } from 'react';
+import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
+import { useDiscussions } from '../../../hooks/discussions';
 import { getDiscussionDetailUrl } from '../../../urls';
+import DiscussionStatusTag from '../../DiscussionStatus';
+import PanelHeader from '../../PanelHeader';
 import CreateDiscussion from '../CreateDiscussion';
 import styles from './styles.module.less';
-import { useDiscussions } from '../../../hooks/discussions';
-import { useParams } from 'react-router';
-import { List, Tag, Typography } from 'antd';
-import PanelHeader from '../../PanelHeader';
-import DiscussionStatusTag from '../../DiscussionStatus';
-import _ from 'lodash-es';
+
 interface Props {}
 
 export const DiscussionsList = ({}: Props) => {
   const { discussions } = useDiscussions();
-  const { discussionId, spaceId } = useParams<{
+  const { spaceId } = useParams<{
     discussionId: string | undefined;
     spaceId: string;
   }>();

@@ -5,17 +5,11 @@ import {
   EntityState,
   PayloadAction,
 } from '@reduxjs/toolkit';
-import { RootState } from '../reducers';
-import { Comment } from '../../interfaces/comments';
-import { selectGraphics } from '../graphics';
 
-export const commentsAdapter = createEntityAdapter<Comment[]>({
-  // Assume IDs are stored in a field other than `book.id`
-  // selectId: (graphic) => {
-  //   return graphic.id;
-  // },
-  // sortComparer: (a, b) => a.id.localeCompare(b.id),
-});
+import { Comment } from '../../interfaces/comments';
+import { RootState } from '../reducers';
+
+export const commentsAdapter = createEntityAdapter<Comment[]>({});
 
 type ExtraState = {
   error: Error | null;

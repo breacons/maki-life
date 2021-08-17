@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './styles.module.less';
+
 import { Comment } from '../../interfaces/comments';
-import CommentsDisplay from './CommentsDisplay';
-import WriteComment from './WriteComment';
-import { Divider, Typography } from 'antd';
 import { SectionTitle } from '../SectionTitle';
+import CommentsDisplay from './CommentsDisplay';
+import styles from './styles.module.less';
+import WriteComment from './WriteComment';
 
 interface Props {
   comments: Record<string, Comment> | undefined;

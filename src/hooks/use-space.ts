@@ -1,12 +1,13 @@
-import { useParams } from 'react-router';
-import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
-import { useSelector } from 'react-redux';
-import { RootState } from '../redux/reducers';
 import { useMemo } from 'react';
-import { firebaseToArray, firebaseToObject } from '../utils/firebase-transformers';
-import { User, UserType } from '../interfaces/users';
-import { useUserId } from './use-user';
+import { useSelector } from 'react-redux';
+import { isEmpty, isLoaded, useFirebaseConnect } from 'react-redux-firebase';
+import { useParams } from 'react-router';
+
 import { Space } from '../interfaces/spaces';
+import { User, UserType } from '../interfaces/users';
+import { RootState } from '../redux/reducers';
+import { firebaseToArray, firebaseToObject } from '../utils/firebase-transformers';
+import { useUserId } from './use-user';
 
 export const useSpaceId = () => {
   const { spaceId } = useParams<{ spaceId: string }>();
@@ -16,7 +17,7 @@ export const useSpaceId = () => {
 export const useSpaces = () => {
   const userId = useUserId();
   useFirebaseConnect([
-    { path: `spaces`, queryParams: [`orderByChild=memberIds/${userId}`, `equalTo=true`] },
+    { path: 'spaces', queryParams: [`orderByChild=memberIds/${userId}`, 'equalTo=true'] },
   ]);
   const spaces = useSelector((state: RootState) => state.firebase.ordered.spaces);
 
@@ -67,11 +68,9 @@ export const useSpaceById = ({
 };
 
 export const useSpaceMembers = (type?: UserType) => {
-  const id = useSpaceId();
-
   useFirebaseConnect([
     {
-      path: `users`,
+      path: 'users',
       // queryParams: [`orderByChild=spaceIds/${id}`, 'equalTo=true'],
       // storeAs: 'users',
     },

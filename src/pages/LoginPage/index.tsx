@@ -1,4 +1,4 @@
-import {Button, Divider, Image, Typography} from 'antd';
+import { Button, Divider, Typography } from 'antd';
 import React, { Fragment, useState } from 'react';
 import { Field } from 'react-final-form';
 import { useSelector } from 'react-redux';
@@ -6,17 +6,17 @@ import { isEmpty, isLoaded, useFirebase } from 'react-redux-firebase';
 import { useHistory } from 'react-router';
 import { Link, Redirect } from 'react-router-dom';
 
-import styles from './styles.module.less';
-import { joi } from '../../lib/joi';
-import { validateSchema } from '../../components/Form/validation';
-import { RootState } from '../../redux/reducers';
-import {URL_LANDING, URL_SIGNUP, URL_SPACES} from '../../urls';
-import { PageTitle } from '../../components/Header';
-import If from '../../components/If';
-import { SpinnerOverlay } from '../../components/SpinnerOverlay';
 import { Form } from '../../components/Form';
 import Input, { Password } from '../../components/Form/Input';
-import Logo from "../../components/Logo";
+import { validateSchema } from '../../components/Form/validation';
+import { PageTitle } from '../../components/Header';
+import If from '../../components/If';
+import Logo from '../../components/Logo';
+import { SpinnerOverlay } from '../../components/SpinnerOverlay';
+import { joi } from '../../lib/joi';
+import { RootState } from '../../redux/reducers';
+import { URL_LANDING, URL_SIGNUP, URL_SPACES } from '../../urls';
+import styles from './styles.module.less';
 
 const loginSchema = joi
   .object({
@@ -62,7 +62,7 @@ export const LoginPage = () => {
         else={() => (
           <div className={styles.formContainer}>
             <Link to={URL_LANDING}>
-            <Logo width={120} className={styles.logo}/>
+              <Logo width={120} className={styles.logo} />
             </Link>
             <Divider />
             <Form
@@ -71,7 +71,7 @@ export const LoginPage = () => {
               validator={validator}
               initialValues={{}}
             >
-              {({ valid, pristine }) => (
+              {({ valid }) => (
                 <Fragment>
                   <Field
                     name="email"

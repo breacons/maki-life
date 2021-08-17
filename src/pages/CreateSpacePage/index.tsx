@@ -1,20 +1,21 @@
-import React, { Fragment, useState } from 'react';
-import styles from './styles.module.less';
-import firebase from 'firebase';
-import { Form } from '../../components/Form/Form';
-import { Field } from 'react-final-form';
-import Input from '../../components/Form/Input';
 import { Button, Divider, Typography } from 'antd';
+import dayjs from 'dayjs';
+import firebase from 'firebase';
+import React, { Fragment, useState } from 'react';
+import { Field } from 'react-final-form';
 import { useHistory } from 'react-router';
-import { joi } from '../../lib/joi';
-import { validateSchema } from '../../components/Form/validation';
 import { v4 as uuidv4 } from 'uuid';
-import { getSpaceDetailsUrl } from '../../urls';
+
+import { Form } from '../../components/Form/Form';
+import Input from '../../components/Form/Input';
+import { validateSchema } from '../../components/Form/validation';
+import { PageTitle } from '../../components/Header';
+import SpaceLayout from '../../components/Layout/SpaceLayout';
 import { useUserId } from '../../hooks/use-user';
 import { Space } from '../../interfaces/spaces';
-import dayjs from 'dayjs';
-import SpaceLayout from '../../components/Layout/SpaceLayout';
-import { PageTitle } from '../../components/Header';
+import { joi } from '../../lib/joi';
+import { getSpaceDetailsUrl } from '../../urls';
+import styles from './styles.module.less';
 
 interface Props {}
 
@@ -66,7 +67,7 @@ export const CreateSpacePage = ({}: Props) => {
       <div className={styles.container}>
         <div className={styles.inner}>
           <Typography.Title level={2} style={{ textAlign: 'center' }}>
-           Create Space
+            Create Space
           </Typography.Title>
           <Divider />
 

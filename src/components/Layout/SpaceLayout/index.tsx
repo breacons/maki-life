@@ -1,4 +1,4 @@
-import { Button, Col, Divider, Dropdown, Image, Layout, Menu, Row, Space, Typography } from 'antd';
+import { Button, Divider, Dropdown, Layout, Menu, Space } from 'antd';
 import classNames from 'classnames';
 import firebase from 'firebase/app';
 import React, { Fragment, PropsWithChildren } from 'react';
@@ -14,14 +14,11 @@ import If from '../../If';
 import Logo from '../../Logo';
 import SpaceItem from '../../SpaceItem';
 import SpaceSelectList from '../../SpaceSelectList';
-import { BaseLayout } from '../BaseLayout';
-import styles from './Landing.module.less';
-import logo from './logo.svg';
 import UserAvatar from '../../UserAvatar';
+import styles from './Landing.module.less';
 
-const { Content, Footer, Header } = Layout;
+const { Header } = Layout;
 
-// import Head from 'next/head';
 interface Props {
   title?: string;
   hideHeaderSelect?: boolean;

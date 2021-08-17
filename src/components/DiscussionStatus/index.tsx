@@ -1,8 +1,7 @@
-import React from 'react';
-import styles from './styles.module.less';
-import { Discussion, DiscussionStatus } from '../../interfaces/discussions';
 import { Tag } from 'antd';
-import { CheckCircleOutlined, SyncOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import React from 'react';
+
+import { Discussion, DiscussionStatus } from '../../interfaces/discussions';
 
 interface Props {
   discussion: Discussion | null | undefined;
@@ -18,12 +17,6 @@ const colors = {
   [DiscussionStatus.Open]: 'default',
   [DiscussionStatus.Submitted]: 'processing',
   [DiscussionStatus.Agreed]: 'success',
-};
-
-const icons = {
-  [DiscussionStatus.Open]: <ClockCircleOutlined />,
-  [DiscussionStatus.Submitted]: <SyncOutlined />,
-  [DiscussionStatus.Agreed]: <CheckCircleOutlined />,
 };
 
 export const DiscussionStatusTag = ({ discussion }: Props) => {

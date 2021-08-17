@@ -1,10 +1,11 @@
+import { Col, Image, Layout, Row } from 'antd';
 import React from 'react';
-import styles from './styles.module.less';
-import SpaceLayout from '../../components/Layout/SpaceLayout';
+
 import { PageTitle } from '../../components/Header';
+import SpaceLayout from '../../components/Layout/SpaceLayout';
 import landingImage from './images/landing-logo.png';
 import landingScreen from './images/maki-landing-screen.png';
-import { Col, Row, Image, Layout, Typography } from 'antd';
+import styles from './styles.module.less';
 
 interface Props {}
 

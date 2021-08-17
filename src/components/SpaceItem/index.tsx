@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './styles.module.less';
+import { Link } from 'react-router-dom';
+
 import { Space } from '../../interfaces/spaces';
 import { getSpaceDetailsUrl } from '../../urls';
-import { Link } from 'react-router-dom';
 import EditSpaceMembers from '../EditSpaceMembers';
 import If from '../If';
+import styles from './styles.module.less';
 
 interface Props {
   space: Space | null;
